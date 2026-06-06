@@ -24,7 +24,7 @@ async function sendClinicNotification(subject, html) {
     return;
   }
   try {
-    const fromAddr = `Clinic <${CLINIC_EMAIL}>`;
+    const fromAddr = 'onboarding@resend.dev';
     const result = await resend.emails.send({
       from: fromAddr,
       to: CLINIC_EMAIL,
@@ -52,7 +52,7 @@ async function sendPatientEmail(email, name) {
     return;
   }
   try {
-    const fromAddr = `Clinic <${CLINIC_EMAIL || 'onboarding@resend.dev'}>`;
+    const fromAddr = 'onboarding@resend.dev';
     const result = await resend.emails.send({
       from: fromAddr,
       to: email,
