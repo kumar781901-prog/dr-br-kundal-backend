@@ -6,7 +6,6 @@ const appointmentRoutes=require('./routes/appointments');
 const contactRoutes=require('./routes/contact');
 
 const app=express();
-app.set('trust proxy', 1);
 app.use(express.json());
 app.use(cors({origin:process.env.FRONTEND_URL}));
 app.use(rateLimit({windowMs:15*60*1000,max:100}));
