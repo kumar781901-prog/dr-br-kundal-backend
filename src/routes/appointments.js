@@ -11,8 +11,8 @@ router.post('/',[body('name').notEmpty(),body('phone').notEmpty()],async(req,res
    const {name,email,phone,message}=req.body;
    const result=await sql`INSERT INTO appointments(name,email,phone,message)
      VALUES(${name},${email},${phone},${message}) RETURNING *`;
-   //await sendClinicNotification('New Appointment',`<p>${name}</p>`);
-   //if(email) await sendPatientEmail(email,name);
+   await sendClinicNotification('New Appointment',`<p>${name}</p>`);
+   if(email) await sendPatientEmail(email,name);
    res.json({success:true,appointment:result[0]});
  } catch (err) {
    next(err);
